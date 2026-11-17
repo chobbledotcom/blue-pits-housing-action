@@ -44,6 +44,16 @@
   --border-radius: 6px;
 }
 
+// The old site's page background: light grey squares, fixed while the page
+// scrolls. A 30% white wash keeps links at 4.5:1 or better on the darkest
+// square (4.35:1 without it).
+body.design-system {
+  background:
+    linear-gradient(rgb(255 255 255 / 30%), rgb(255 255 255 / 30%)) fixed,
+    url("../assets/backgrounds/squares.png") fixed;
+  background-color: var(--body-background);
+}
+
 // The reading column: the narrow container's text width, centred, so long
 // text, the reviews and the narrow blocks share one left edge.
 @mixin reading-column {
@@ -96,12 +106,12 @@
   }
 
   // ---------------------------------------------------------------------------
-  // Sections: plain white, not the template's zebra stripes, so the page
-  // reads as one document. Heroes, dark sections and the Facebook band set
-  // their own backgrounds below.
+  // Sections: no zebra stripes, so the page reads as one document; plain
+  // sections show the page's squares. Heroes, dark sections and the
+  // Facebook band set their own backgrounds below.
   // ---------------------------------------------------------------------------
   main > section:not(.dark) {
-    background: var(--body-background);
+    background: transparent;
   }
 
   // ---------------------------------------------------------------------------
@@ -110,10 +120,11 @@
   // ---------------------------------------------------------------------------
   main > section:has(> .hero) {
     border-bottom: 1px solid var(--color-tint);
+    // The two pale blues, slightly see-through so the squares show.
     background: linear-gradient(
       180deg,
-      var(--body-background-alt),
-      var(--color-tint)
+      rgb(241 244 251 / 85%),
+      rgb(227 234 248 / 90%)
     );
   }
 
@@ -189,7 +200,7 @@
   // ---------------------------------------------------------------------------
   main > section:has(.facebook-band-intro),
   main > section:has(.facebook-band-intro) + section {
-    background: var(--body-background-alt);
+    background: rgb(241 244 251 / 85%);
   }
 
   main > section:has(.facebook-band-intro) {
