@@ -78,12 +78,12 @@ export const runFetcherMain = async ({ fetchPosts, report }, options = {}) => {
  *   platform: string,
  *   socialKey: string,
  *   fetchPosts: (args: any) => Promise<{ fetched: number, saved: number }>,
- *   extraArgs?: () => Record<string, any>
+ *   extraArgs: () => Record<string, any>
  * }} config
  * @returns {(options?: { rootDir?: string, fetchFn?: typeof fetch }) => Promise<void>}
  */
 export const createSocialMain =
-  ({ platform, socialKey, fetchPosts, extraArgs = () => ({}) }) =>
+  ({ platform, socialKey, fetchPosts, extraArgs }) =>
   (options) =>
     runFetcherMain(
       {
