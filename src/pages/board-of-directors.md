@@ -22,7 +22,9 @@ blocks:
 
       Our Trustees provide strategic leadership and have overall control of Blue Pits Housing Action. Our Trustees are responsible for making sure the charity is doing what it was set up to do. In our case;
 
-      1. To carry on for the benefit of the community the business of providing social housing and any associated amenities, services, advice or assistance for persons: o in necessitous circumstances upon terms appropriate to their means; o for whom it would be charitable to provide housing
+      1. To carry on for the benefit of the community the business of providing social housing and any associated amenities, services, advice or assistance for persons:
+         - in necessitous circumstances upon terms appropriate to their means;
+         - for whom it would be charitable to provide housing
 
       2. To promote or carry out any other charitable purpose that can be carried out by a company registered as a social landlord with the tenant services authority or such similar authority from time to time.
 
@@ -30,7 +32,7 @@ blocks:
 
       ## Sarah-Jayne Anderson - Chair
 
-      Sarah's career began as a Police Constable with West Yorkshire Police. More recently, she transitioned to the Youth Offending Service, utilizing her skills to work with individuals with complex needs and diverse backgrounds, a role she has fulfilled for over 20 years.
+      Sarah's career began as a Police Constable with West Yorkshire Police. More recently, she transitioned to the Youth Offending Service, utilising her skills to work with individuals with complex needs and diverse backgrounds, a role she has fulfilled for over 20 years.
 
       In addition to her law enforcement experience, Sarah has expanded her professional scope by working with an ALMO for a Local Authority Housing Association. This position allowed her to deepen her understanding of housing-related matters and the broader community.
 
@@ -38,7 +40,7 @@ blocks:
 
       ## Kathleen Ince
 
-      Kathleen is a Youth Offending Team (YOT) Nurse, currently working with offenders to address their healthcare needs.
+      Kathleen has been on the board since Blue Pits Housing Action began. She is a Youth Offending Team (YOT) Nurse, currently working with offenders to address their healthcare needs.
 
       With extensive experience in delivering holistic healthcare to individuals with learning disabilities (LD) and complex needs, she advocates that stable accommodation is the fundamental first step towards recovery.
 
@@ -46,7 +48,9 @@ blocks:
 
       ## Pete Ruddy
 
-      Pete is a retired Management Accountant. He has twenty three years’ experience working in the finance department of the NHS as a management accountant, working originally in North Manchester before moving to Pennine Acute services.
+      Pete is a retired Management Accountant. He worked for the NHS for 30 years in finance and management accounting, including twenty three years as a management accountant, working originally in North Manchester before moving to Pennine Acute services. He is AAT qualified.
+
+      Pete also volunteers with our tenants, helping them make the wooden crafts we sell at craft fairs.
 
       ## Christine Ince
 

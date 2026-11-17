@@ -16,6 +16,8 @@ blocks:
       We run an independently constituted activities group targeted at vulnerable adults in Rochdale, although everyone is welcome to attend. There are a range of different activities to meet different levels of skill and ability and plenty of paid and volunteer support staff in attendance to provide assistance.
 
       Many of the people who come to our activities group experience mental health problems or learning difficulties.  Our fun and engaging sessions help them to socialise and integrate with the wider community, supporting their well-being and happiness. Our tenants love coming to our sessions, learning new skills and improving their independence with the help of our trained and professional staff.
+
+      Our activity base is the Landings WellbeingHub, at Unit 8 The Landings, 157 Oldham Road, Rochdale. It runs a free daily timetable of activities for Blue Pits Housing Action and Newbarn Ltd tenants.
   - type: table-of-contents
     title: Jump to Activity
     levels: "2"
@@ -41,6 +43,14 @@ blocks:
 
       We have a number of weekly exercise sessions based on the preferences and recommendations of our service users - you can come to boxing lessons, badminton games and everything in-between!
 
+      ## Football
+
+      We play football every two weeks with Newbarn Ltd.
+
+      ## Games Room
+
+      Our games room at the Landings WellbeingHub opened in November 2025, with pool, darts and Xbox games. Tenants can drop in and see Steph to book a slot.
+
       ## Gardening
 
       Nothing is more relaxing than learning gardening skills, growing fruit and vegetables, creating attractive pieces of land and getting your hands dirty.
@@ -54,4 +64,10 @@ blocks:
       Many of our service users have difficulties with maths, reading, writing and other important skills. We provide patient and expert instruction so they can build their skills in whatever areas they struggle in.
 
       ## Music Groups
+
+      Tenants can take music lessons, including guitar, and we have run songwriting sessions too.
+
+      ## Quiz
+
+      Friday is quiz day at the Landings WellbeingHub.
 ---

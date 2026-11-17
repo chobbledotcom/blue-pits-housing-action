@@ -35,10 +35,16 @@ An inclusive, client needs-led, high quality **accommodation and support service
 </div>
 <div>
 
-### Associated Busineses
+### Associated Businesses
 
 - [Newbarn Ltd](https://www.newbarnltd.co.uk)
 - [Freehold Cottage](https://www.freeholdcottage.com)
+
+</div>
+<div>
+
+### More information
+
 - [Privacy Policy](/privacy/)
 - [Quality Assurance (PDF)](/docs/quality-assurance.pdf)
 - [Trustpilot reviews](https://uk.trustpilot.com/review/bluepitshousingaction.co.uk)
