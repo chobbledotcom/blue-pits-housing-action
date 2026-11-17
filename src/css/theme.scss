@@ -179,18 +179,10 @@ body.design-system {
 
   // ---------------------------------------------------------------------------
   // Complaint form: its long introduction reads from the top beside the
-  // fields, and checkboxes sit beside their labels.
+  // fields.
   // ---------------------------------------------------------------------------
   .contact-form-block:has(> * + .contact-form) {
     align-items: start;
-  }
-
-  .contact-form label:has(> input[type="checkbox"]) {
-    display: flex;
-    flex-direction: row-reverse;
-    gap: var(--space-xs);
-    align-items: center;
-    justify-content: flex-end;
   }
 
   // ---------------------------------------------------------------------------
