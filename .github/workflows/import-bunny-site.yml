@@ -1,0 +1,36 @@
+name: Import Bunny Site
+
+# One-off: turn the BUNNY_STORAGE_ZONE_NAME storage zone into a Bunny Site so
+# the BunnyWay deploy action can publish to it. Importing with --from-zone keeps
+# the zone's pull zone, hostnames and certificates; visitors see no change until
+# the first deploy. Safe to re-run: it does nothing when the site exists.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    env:
+      BUNNYNET_API_KEY: ${{ secrets.BUNNY_ACCESS_KEY }}
+      ZONE: ${{ secrets.BUNNY_STORAGE_ZONE_NAME }}
+    steps:
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Import the storage zone as a site
+        run: |
+          if npx --yes @bunny.net/cli@0.19 sites show "$ZONE" --output json >/dev/null 2>&1; then
+            echo "Already a Bunny Site; nothing to do."
+          else
+            npx --yes @bunny.net/cli@0.19 sites create "$ZONE" \
+              --from-zone "$ZONE" \
+              --force \
+              --output json
+          fi
+          npx --yes @bunny.net/cli@0.19 sites show "$ZONE" --output json
