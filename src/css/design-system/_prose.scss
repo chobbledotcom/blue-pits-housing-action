@@ -22,7 +22,13 @@
     }
 
     // Blockquotes
+    // Full width up to the narrow measure: auto margins alone would shrink
+    // a short quote to its text inside the flex-column prose. Its
+    // paragraphs and lists stack with a gap, as prose's own children do.
     blockquote {
+      @include flex-col($space-sm);
+
+      width: 100%;
       max-width: $width-narrow;
       margin-inline: auto;
       padding: $space-sm $space-md;

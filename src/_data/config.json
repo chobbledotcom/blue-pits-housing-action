@@ -3,5 +3,9 @@
   "placeholder_images": false,
   "search_collections": [],
   "formspark_id": "7R8HklDpp",
-  "botpoison_public_key": "pk_bbb182a9-1ff3-4d9a-839c-06e45f41a6e6"
+  "botpoison_public_key": "pk_bbb182a9-1ff3-4d9a-839c-06e45f41a6e6",
+  "review_sources": {
+    "trustpilot_url": "https://uk.trustpilot.com/review/bluepitshousingaction.co.uk"
+  },
+  "linkify_urls": false
 }

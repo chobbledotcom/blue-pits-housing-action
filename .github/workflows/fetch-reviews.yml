@@ -6,7 +6,8 @@ name: Fetch Reviews
 
 on:
   schedule:
-    - cron: "0 9 * * *"
+    # Weekly, Monday 09:00 UTC, as the old site's Trustpilot importer ran.
+    - cron: "0 9 * * 1"
   workflow_dispatch:
 
 concurrency:
@@ -33,7 +34,8 @@ jobs:
 
       - name: Fetch reviews
         env:
-          APIFY_API_TOKEN: ${{ secrets.APIFY_API_TOKEN }}
+          # This repository keeps the Apify token as APIFY_API_KEY.
+          APIFY_API_TOKEN: ${{ secrets.APIFY_API_KEY }}
         run: |
           npm ci
           npm run fetch-reviews

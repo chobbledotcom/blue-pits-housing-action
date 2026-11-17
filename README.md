@@ -28,9 +28,23 @@ reviewed merge from an `upstream` remote.
   endpoint. `.github/workflows/fetch-facebook-posts.yml` fetches new posts
   weekly, commits them and redeploys. Delete a post's JSON file to drop it from
   the site; only a full re-scrape (`--all`) would bring it back.
+- **Trustpilot reviews and compliments:** `review_sources.trustpilot_url` in
+  `src/_data/config.json` points the template's `npm run fetch-reviews` at the
+  Trustpilot profile, through the same Apify actor the old site's importer
+  used; it stores each review in `src/reviews/` and never rewrites one, so
+  `hidden: true` hides a review for good. `.github/workflows/fetch-reviews.yml`
+  runs it weekly, as the old importer did, and redeploys when there are new
+  reviews. `/compliments/` lists the reviews in one column, then the
+  handwritten compliments newest first; `/reviews/` redirects there.
+  `src/_includes/trustpilot-rating.html` works out the "rated 5 out of 5 from
+  8 reviews" line from the stored reviews. `linkify_urls` is off: no page
+  needs bare URLs linked, and it turned "collaboration.It" in a review into a
+  link.
 - **Shared band:** the `footer-content` snippet's blocks put the Facebook
-  strip, the live CQC rating widget and the accreditation badges at the foot
-  of every page, where the old site had a sidebar. Its headings carry
+  strip and `src/_includes/accreditations.html` - the live CQC rating
+  widget, the Good Landlord Charter, the Trustpilot rating and the
+  accreditation badges - at the foot of every page, where the old site had a
+  sidebar. Its headings carry
   `data-toc-skip` so the "Jump to" contents on the directors, lead team and
   activities pages list only that page's own sections; the
   `table-of-contents` transform honours that attribute.
@@ -73,4 +87,4 @@ APIFY_API_KEY=... npm run fetch-facebook-posts -- --all  # full re-scrape
 `.github/workflows/build-and-deploy.yaml` builds every push and deploys `main`
 to Bunny. It needs the `BUNNY_ACCESS_KEY` secret and `BUNNY_STORAGE_ZONE_NAME`
 set to `blue-pits-2` (the old Jekyll site deployed to `blue-pits`). The weekly
-Facebook fetch needs `APIFY_API_KEY`.
+Facebook fetch and the weekly Trustpilot fetch need `APIFY_API_KEY`.

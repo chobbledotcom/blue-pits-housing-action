@@ -44,6 +44,14 @@
   --border-radius: 6px;
 }
 
+// The reading column: the narrow container's text width, centred, so long
+// text, the reviews and the narrow blocks share one left edge.
+@mixin reading-column {
+  width: 100%;
+  max-width: calc(680px - 2 * var(--space-lg));
+  margin-inline: auto;
+}
+
 .design-system {
   // ---------------------------------------------------------------------------
   // Header: logo and contact details on one row, the menu across the next,
@@ -136,11 +144,12 @@
   // characters at a slightly larger size, not across the full wide container.
   // The width is the narrow container's text width, so prose lines up with
   // the downloads, callouts and contents blocks that use that container.
+  // Only a block that is all prose: a block's intro above its cards keeps
+  // the cards' full width.
   // ---------------------------------------------------------------------------
-  main > section > .container-wide > .prose:not(.facebook-band-intro) {
-    width: 100%;
-    max-width: calc(680px - 2 * var(--space-lg));
-    margin-inline: auto;
+  main > section > .container-wide > .prose:only-child:not(.facebook-band-intro) {
+    @include reading-column;
+
     font-size: 1.0625rem;
   }
 
@@ -249,6 +258,48 @@
       height: 3rem;
       object-fit: contain;
     }
+  }
+
+  // The Good Landlord Charter and Trustpilot tiles carry a line of text, so
+  // they stack their contents rather than centring one logo.
+  .accreditation-badges .badge-with-caption,
+  .accreditation-badges .trustpilot-summary {
+    flex-direction: column;
+    gap: var(--space-xs);
+    font-size: var(--font-size-sm);
+    text-align: center;
+  }
+
+  .trustpilot-summary h3 {
+    font-size: var(--font-size-md);
+  }
+
+  // Reviews read as one list down the reading column, each in full, as the
+  // old site's compliments page listed them; the block's intro lines up
+  // with it. Cards of very different lengths leave gaps in a grid.
+  .container-wide > .prose:has(+ .items.reviews:not(.slider)),
+  .items.reviews:not(.slider) {
+    @include reading-column;
+  }
+
+  .items.reviews:not(.slider) {
+    flex-direction: column;
+
+    > li {
+      flex: none;
+      max-width: 100%;
+    }
+
+    > li .review {
+      overflow-y: visible;
+      max-height: none;
+    }
+  }
+
+  // Quotations read at body size, as on the old site, not the template's
+  // larger pull-quote size.
+  .prose blockquote {
+    font-size: 1rem;
   }
 
   // ---------------------------------------------------------------------------

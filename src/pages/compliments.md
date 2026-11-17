@@ -1,8 +1,10 @@
 ---
 name: Compliments
-meta_title: Testimonials & Compliments | Blue Pits Housing Action
-meta_description: Read testimonials and positive feedback from service users, families, and partner organisations about Blue Pits Housing Action's support services in Rochdale.
+meta_title: Testimonials, Compliments & Trustpilot Reviews | Blue Pits Housing Action
+meta_description: Read testimonials and positive feedback from service users, families, partner organisations, and Trustpilot reviewers about Blue Pits Housing Action's support services in Rochdale.
 permalink: /compliments/
+redirect_from:
+  - /reviews
 eleventyNavigation:
   key: Compliments
   order: 7
@@ -12,12 +14,40 @@ blocks:
     content: |
       # Compliments
 
-      Recent feedback from our service users and partner organisations.
+      Recent feedback from our service users, families and partner organisations, alongside reviews left on Trustpilot.
+
+      {% include "trustpilot-rating.html" %}[Read our Trustpilot reviews](https://uk.trustpilot.com/review/bluepitshousingaction.co.uk){% if trustpilot_total > 0 %} &mdash; rated **{{ trustpilot_average }} out of 5** from {{ trustpilot_total }} reviews.{% endif %}
+  - type: reviews
+    intro_content: "## Trustpilot reviews"
   - type: markdown
     content: |
-      ## Recent Compliments (April - July 2025)
+      ## Compliments
 
-      ### UCLAN - Student Placement Feedback
+      ### UCLan Social Work Placement Team
+
+      *August 2026*
+
+      > I wanted to share my real appreciation about how Newbarn and Blue Pitts have worked to support practice learning with numerous students over the years. Many of the students we have placed with you are experiencing their own unique journeys towards becoming a social worker, some of which has included some difficult experiences on the course, such as failing previous placements. The person centred approach provided within the services at Newbarn and Blue Pitts, as well as the care given to supporting individual students, has been particularly valuable for these learners, and I wanted to acknowledge this and share my sincere thanks.
+
+      ### Close family member of a tenant
+
+      *May 2026*
+
+      > Thank you for your care and support after a tenant had died.
+
+      ### Service user
+
+      *December 2025*
+
+      > Happy New Year, Vicky
+      >
+      > In my reflections as the year 2025 comes to an end, you came to mind as one of the few people who made constructive impact in my journey this far. I want to express my deep thought gratitude for all that you represented to me.
+      >
+      > Thank you for your kindness and support. Here's wishing you healthy, prosperous 2026 and beyond.
+
+      ### UCLan Social Work Placement Team
+
+      *April - July 2025*
 
       > Dear Vicky
       >
@@ -48,6 +78,8 @@ blocks:
 
       ### Rochdale Council Quality Assurance Officer
 
+      *April - July 2025*
+
       > Good afternoon Vicky.
       >
       > Thank you for letting me join your team meeting yesterday. It was such a pleasure to be part of your meeting and listening to your good news stories as well as other crucial discussions such as, risk assessing and CQC visits.
@@ -60,7 +92,9 @@ blocks:
       >
       > Kind Regards
 
-      ### Parent of Service User
+      ### Parent of a service user
+
+      *April - July 2025*
 
       > The support staff keep me well informed, Blue Pits is an excellent service, Amanda communicates exceptionally well and advices me of any concerns, She is very competent. Marcia and Steph are very positive, friendly and upbeat with my Daughter.
 ---

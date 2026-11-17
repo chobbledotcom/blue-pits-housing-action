@@ -12,22 +12,8 @@ blocks:
     horizontal: true
     limit: 12
     image_aspect_ratio: 1/1
-  - type: html
-    content: |
-      <div class="accreditations" data-toc-skip>
-        <h2>Ratings and accreditations</h2>
-        <div class="accreditations-grid">
-          <div class="cqc-widget">
-            <script src="https://www.cqc.org.uk/sites/all/modules/custom/cqc_widget/widget.js?data-id=1-2693034270&data-host=www.cqc.org.uk&type=location"></script>
-          </div>
-          <ul class="accreditation-badges" role="list">
-            <li><img src="/images/investors-in-people.png" width="150" height="45" alt="Investors in People logo"></li>
-            <li><img src="/images/health-and-wellbeing.png" width="150" height="45" alt="Investors in People Good Practice Health &amp; Wellbeing Award"></li>
-            <li><a href="https://hub.gmintegratedcare.org.uk/asc/" title="Visit the Greater Manchester Adult Social Care Provider Network"><img src="/images/greater-manchester-adult-social-care.png" width="352" height="106" alt="I'm a Greater Manchester Adult Social Care Provider Network Member"></a></li>
-            <li><a href="https://www.cranfieldtrust.org/pages/-charity-journey-to-excellence" rel="nofollow" title="Learn about the J2E Journey to Excellence"><img src="/images/cranfield-trust-badge.png" width="1800" height="500" alt="Cranfield Trust | Jouney to Excellence | Committed to Improvement 2025"></a></li>
-          </ul>
-        </div>
-      </div>
+  - type: include
+    file: accreditations.html
 ---
 
 <div class="footer-columns">
@@ -55,6 +41,8 @@ An inclusive, client needs-led, high quality **accommodation and support service
 - [Freehold Cottage](https://www.freeholdcottage.com)
 - [Privacy Policy](/privacy/)
 - [Quality Assurance (PDF)](/docs/quality-assurance.pdf)
+- [Trustpilot reviews](https://uk.trustpilot.com/review/bluepitshousingaction.co.uk)
+- [Website feedback survey](https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=GXr3G9esyU2YAfb-6saAyFC705wYwbtIjkn6b8Zm4dBUNk9CMjdQUkRQNDBQSE9QRzdZR1JSQ0JHSy4u&origin=BluePitsWebsite)
 
 </div>
 </div>

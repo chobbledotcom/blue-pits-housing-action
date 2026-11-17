@@ -31,10 +31,21 @@
       letter-spacing: 0.1em;
     }
 
-    // A long review scrolls inside its card rather than stretching the row
+    // A long review scrolls inside its card rather than stretching the row.
+    // Its paragraphs - a Trustpilot title and body are two - stack with a
+    // gap, as prose's do.
     .review {
       overflow-y: auto;
       max-height: 160px;
+
+      // The card pads itself, so the review's paragraphs drop the items
+      // grid's text inset: with it they sit a step in from the rating and
+      // the reviewer.
+      p {
+        padding-inline: 0;
+      }
+
+      @include flex-col($space-xs);
     }
 
     .author-info {

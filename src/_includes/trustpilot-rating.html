@@ -1,0 +1,15 @@
+{%- comment -%}
+  Sets trustpilot_total and trustpilot_average (one decimal place) from the
+  reviews collection, for the compliments page and the ratings band to word
+  in their own sentences. Stored reviews are all from Trustpilot, the only
+  source in config review_sources. With no reviews, trustpilot_total is 0
+  and callers leave the rating out.
+{%- endcomment -%}
+{%- assign trustpilot_total = collections.reviews.size -%}
+{%- if trustpilot_total > 0 -%}
+  {%- assign _rating_sum = 0 -%}
+  {%- for _review in collections.reviews -%}
+    {%- assign _rating_sum = _rating_sum | plus: _review.data.rating -%}
+  {%- endfor -%}
+  {%- assign trustpilot_average = _rating_sum | times: 1.0 | divided_by: trustpilot_total | round: 1 -%}
+{%- endif -%}
