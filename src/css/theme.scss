@@ -314,11 +314,29 @@ body.design-system {
   }
 
   // ---------------------------------------------------------------------------
+  // The navy sections carry the page's squares at half their contrast
+  // (squares-faint.png), multiplied into the blue so each square darkens it
+  // by 0.5-6.5%: a texture only just visible, and white text keeps
+  // (slightly gains) its contrast. :nth-child(n) matches the
+  // template's even-section rule, whose background shorthand would
+  // otherwise clear the image.
+  // ---------------------------------------------------------------------------
+  main > section.dark:nth-child(n) {
+    background-image: url("../assets/backgrounds/squares-faint.png");
+    background-attachment: fixed;
+    background-blend-mode: multiply;
+  }
+
+  // ---------------------------------------------------------------------------
   // Footer
   // ---------------------------------------------------------------------------
   footer {
     color: #e8edf8;
+
     background: var(--color-dark-bg-alt);
+    background-image: url("../assets/backgrounds/squares-faint.png");
+    background-attachment: fixed;
+    background-blend-mode: multiply;
 
     // Matches the base `a:not(.btn)` rule's specificity so it wins.
     a:not(.btn) {
