@@ -53,9 +53,8 @@ An inclusive, client needs-led, high quality **accommodation and support service
 
 - [Newbarn Ltd](https://www.newbarnltd.co.uk)
 - [Freehold Cottage](https://www.freeholdcottage.com)
-
-[Privacy Policy](/privacy/)<br>
-[Quality Assurance (PDF)](/docs/quality-assurance.pdf)
+- [Privacy Policy](/privacy/)
+- [Quality Assurance (PDF)](/docs/quality-assurance.pdf)
 
 </div>
 </div>
