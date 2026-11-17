@@ -12,7 +12,11 @@ blocks:
     content: |
       # News
 
-      What we have been up to, from the [Blue Pits Housing Action Facebook page](https://www.facebook.com/bluepitshousingaction/).
+      Our latest posts from the [Blue Pits Housing Action Facebook page](https://www.facebook.com/bluepitshousingaction/).
   - type: socials
     directory: facebook-posts
+    limit: 20
+  - type: markdown
+    content: |
+      For older posts, see the [Blue Pits Housing Action Facebook page](https://www.facebook.com/bluepitshousingaction/).
 ---
