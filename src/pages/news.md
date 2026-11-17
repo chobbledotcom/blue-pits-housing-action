@@ -1,20 +1,18 @@
 ---
 name: News
-meta_description:
-meta_title: News
-
+meta_title: News from Facebook | Blue Pits Housing Action
+meta_description: The latest news, events and activities from Blue Pits Housing Action in Rochdale, from our Facebook page.
+permalink: /news/
 eleventyNavigation:
   key: News
-  order: 3
+  order: 8
 blocks:
-  - type: markdown
+  - type: hero
+    compact: true
     content: |
       # News
 
-      On a real website this is where you'd list your news posts - saving your visitors from needing to click through to social media to learn about what you've been up to.
-
-      Your news posts also appear in the [Atom feed](/feed.xml), so visitors can subscribe in a feed reader.
-  - type: items
-    collection: news
-    image_aspect_ratio: "4/3"
+      What we have been up to, from the [Blue Pits Housing Action Facebook page](https://www.facebook.com/bluepitshousingaction/).
+  - type: socials
+    directory: facebook-posts
 ---

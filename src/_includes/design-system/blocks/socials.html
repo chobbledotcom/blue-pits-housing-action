@@ -1,0 +1,43 @@
+{%- comment -%}
+Socials block: renders posts loaded from a directory of JSON files.
+
+Parameters (from block):
+  directory           - Directory under `src/` holding the post JSON files
+  limit               - Optional cap on how many posts show, newest first
+  intro_content       - Optional markdown rendered above the posts
+  horizontal          - If true, renders as a horizontal slider
+  image_aspect_ratio  - Optional aspect ratio for the thumbnails
+
+Captions come from third-party feeds, so every text value is escaped here
+rather than passed through the shared list-item templates.
+{%- endcomment -%}
+
+{%- assign socialPosts = block.directory | loadSocials -%}
+{%- if block.limit -%}
+  {%- assign socialPosts = socialPosts | slice: 0, block.limit -%}
+{%- endif -%}
+{%- include "design-system/block-intro.html" -%}
+
+{%- if socialPosts.size > 0 -%}
+  {%- if block.horizontal -%}<div class="slider-container">{%- endif %}
+  <ul class="items{% if block.horizontal %} slider{% endif %}" role="list">
+    {%- for post in socialPosts %}
+    <li>
+      {%- if post.data.thumbnail %}
+      <a class="image-link" href="{{ post.url | escape }}" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        {%- image post.data.thumbnail, "", "", "", "", block.image_aspect_ratio -%}
+      </a>
+      {%- endif %}
+      {%- if post.data.name != "" %}
+      <h3><a href="{{ post.url | escape }}" target="_blank" rel="noopener">{{ post.data.name | escape }}</a></h3>
+      {%- endif %}
+      <p><strong>{{ post.date | date: "%b %-d, %Y" }}</strong></p>
+      {%- if post.data.platform %}
+      <p><a href="{{ post.url | escape }}" target="_blank" rel="noopener">View on {{ post.data.platform | escape }}</a></p>
+      {%- endif %}
+    </li>
+    {%- endfor %}
+  </ul>
+  {%- if block.horizontal -%}{% include "slider-nav.html" %}{%- endif %}
+  {%- if block.horizontal -%}</div>{%- endif %}
+{%- endif -%}

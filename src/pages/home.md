@@ -1,67 +1,63 @@
 ---
 name: Home
-meta_title: Chobble Template
-meta_description: A static-site template for informational and marketing sites, built from composable content blocks.
+meta_title: Housing Support for Adults with Complex Needs | Blue Pits Rochdale
+meta_description: CQC registered housing support provider in Rochdale for adults with mental health needs, learning disabilities, and complex support requirements. Expert care since 2011.
 permalink: /
 eleventyNavigation:
   key: Home
-  order: 1
+  order: 0
 blocks:
   - type: hero
     content: |
-      # A static-site template for informational sites
+      # Blue Pits Housing Action
 
-      Build small, fast, accessible marketing and informational sites from composable content blocks - written in YAML, rendered by Eleventy, deployed as a static artifact.
+      Blue Pits Housing Action is a **CQC registered personal care provider** and a **provider of social housing**. We have provided a high quality accommodation and preventative / enabling support service in the Rochdale, Heywood and Middleton areas since 2011.
     buttons:
-      - text: Explore the blocks
-        href: /blocks/
+      - text: Call 01706 345886
+        href: tel:01706345886
         variant: primary
         size: lg
-      - text: How it works
-        href: /how-it-works/
+      - text: Our services
+        href: /we-can-help/
         variant: secondary
         size: lg
-  - type: features
-    intro_content: |
-      ## What's in the box
-    items:
-      - icon: "hugeicons:cube"
-        name: Content blocks
-        description: Pages are YAML lists of typed blocks - heroes, FAQs, callouts, image cards - validated at build time with loud errors.
-      - icon: "hugeicons:global"
-        name: Multi-language
-        description: Publish the same page in more than one language, with hreflang tags and a footer language switcher.
-      - icon: "hugeicons:paint-brush-01"
-        name: Themeable
-        description: CSS custom properties throughout, with a visual theme editor and exportable theme files.
-      - icon: "hugeicons:rocket"
-        name: Static output
-        description: One command builds the whole site to a deployable directory - no servers, no database, nothing to patch.
-      - icon: "hugeicons:note-edit"
-        name: Visual editing
-        description: A generated PagesCMS config lets site owners edit pages and blocks in the browser, without touching YAML.
-      - icon: "hugeicons:shopping-cart-01"
-        name: Quotes, not checkouts
-        description: Products carry add-to-quote buttons, and visitors send their quote - hire dates and an estimated price included - to your inbox.
   - type: markdown
     content: |
-      ## Quick start
+      We are a well-known and well respected local provider and have extensive experience of supporting adults with a variety of complex needs including hard to engage adults with severe and enduring mental health conditions, including those with paranoid schizophrenia, anti-social personality disorders, learning disabilities, Bi-Polar Affective Disorder and alcohol related dementia / memory loss. We have successfully supported people from long stay forensic institutions to settle in the community and go on to make a positive contribution to those local communities.
 
-      ```bash
-      npm install          # install dependencies
-      npm run serve        # dev server with hot reload
-      npm run build        # build to _site/ (includes the internal link check)
-      ```
+      We have extensive experience of the complex needs of people with mental health conditions, learning disabilities, substance misuse problems.  This specifically includes:
 
-      Starting a new site? The [installation guide](/guide/getting-started/installation/)
-      covers forking the template, configuration, and deployment.
-  - type: cta
+      - Experience of working with adults, including young and older adults with complex support needs including learning disabilities, substance misuse issues, severe and enduring mental health issues, self-harming behaviours, including self-neglect, dual diagnosis, care leavers, victims of abuse, those at risk of offending and re-offending.
+      - Extensive experience of providing accommodation and support services for adults with learning disabilities, mental health problems, including Mentally Disordered Offenders with complex support needs and as stated above.
+      - Extensive experience of promoting independence to service users who have failed to gain from, or been rejected by, other support agencies for not complying with the implicit or explicit expectations of those agencies.
+  - type: markdown
+    dark: true
     content: |
-      ## This site is its own documentation
+      ## Mission Statement
 
-      Every page here is built from the template's blocks. Read the guides for setup, configuration, and deployment - or open any page's source file to see exactly how it's made.
-    button:
-      text: Read the guides
-      href: /guide/
-      size: lg
+      To support and enable people with complex mental health needs and learning disability to live successfully in the home and community of their choice; to ensure that tenants have choice and control about where and with whom they live, and to provide high quality, person centred support to promote independence.
+
+      ### Aims
+
+      - To improve the overall health and wellbeing of Adults at Risk with complex mental health needs and learning disability, including those with a dual diagnosis.
+      - To enable people to develop and maintain the skills and competencies they need to return to, or remain, living independently in their own home.
+      - To minimise the need for prolonged secondary health and social care provision.
+      - To promote integration and reintegration among socially excluded groups and those leaving institutions of confinement.
+  - type: markdown
+    content: |
+      ## Philosophy
+
+      Blue Pits Housing Action is committed to facilitating and promoting mental well-being, to allow our tenants to enjoy a fulfilled life in the community. We help people to fulfil their aspirations, whilst providing the support they need to achieve this.
+
+      We uphold the privacy and right of every individual to be treated as such – with care, respect and dignity; to live as independently as possible in their own home and to receive the highest quality care and support to enable them to do so.
+
+      - We **enable** people to make positive change by providing opportunities to enjoy and achieve
+      - We help **prevent** and reduce anti-social behaviour, re-offending and the harm caused by alcohol and drugs
+      - We **promote** reintegration by providing opportunities to make a positive contribution
+      - We **support** healthy lifestyles and mental wellbeing by promoting physical activity, healthy eating, addressing substance use such as smoking, alcohol and drugs.
+  - type: callout
+    variant: success
+    icon: hugeicons:checkmark-badge-01
+    name: Care Quality Commission
+    content: We meet the essential standards of quality and safety set out in the Health and Social Care Act 2008 (Regulated Activities) Regulations 2010 and the Care Quality Commission (Registration) Regulations 2009, and can evidence that we meet the associated outcomes.
 ---

@@ -1,13 +1,14 @@
 ---
 name: Thank You
-meta_title: Thank You
-meta_description: Your message has been sent.
+meta_title: Thank You | Blue Pits Housing Action
+meta_description: Thank you for contacting Blue Pits Housing Action. We have received your message.
 permalink: /thank-you/
 no_index: true
 blocks:
-  - type: markdown
+  - type: hero
+    compact: true
     content: |
       # Thank You
 
-      Your message has been sent - we will be in touch.
+      Your message has been sent.
 ---

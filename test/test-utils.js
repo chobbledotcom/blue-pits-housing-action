@@ -275,6 +275,17 @@ const item = (name, options = {}) => ({
 const createFrontmatter = (frontmatterData, content = "") =>
   matter.stringify(content, frontmatterData);
 
+/**
+ * Write the site.json fixture into a test site's src/_data directory.
+ * @param {string} rootDir
+ * @param {Record<string, unknown>} data
+ */
+const writeSiteDataFile = (rootDir, data) => {
+  const dataDir = path.join(rootDir, "src/_data");
+  fs.mkdirSync(dataDir, { recursive: true });
+  fs.writeFileSync(path.join(dataDir, "site.json"), JSON.stringify(data));
+};
+
 // ============================================
 // Eleventy-specific assertion helpers
 // ============================================
@@ -398,4 +409,5 @@ export {
   withTempFile,
   // Core
   wrapHtml,
+  writeSiteDataFile,
 };

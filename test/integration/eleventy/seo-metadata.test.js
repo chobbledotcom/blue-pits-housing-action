@@ -155,13 +155,16 @@ describe("generated SEO metadata", () => {
       image: `${SITE_URL}/images/placeholders/purple.svg`,
     });
 
+    // Read the escaped titles back through a parser: a page that also passes
+    // through the DOM transform (any page with a mailto link) writes `&` as
+    // `&amp;`, which is the same attribute value.
+    const doc = await site.getDoc("/normal/index.html");
+    const metaContent = (property) =>
+      doc.querySelector(`meta[property="${property}"]`).getAttribute("content");
+    expect(metaContent("og:title")).toBe('Normal & "Social"');
+    expect(metaContent("og:description")).toBe('Normal & "description"');
+
     const output = site.getOutput("/normal/index.html");
-    expect(output).toContain(
-      '<meta property="og:title" content="Normal & &quot;Social&quot;">',
-    );
-    expect(output).toContain(
-      '<meta property="og:description" content="Normal & &quot;description&quot;">',
-    );
     expect(output).toContain(
       `<meta property="og:url" content="${SITE_URL}/normal/">`,
     );

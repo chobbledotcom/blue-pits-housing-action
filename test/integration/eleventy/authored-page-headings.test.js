@@ -35,7 +35,7 @@ const galleryIndex = {
 };
 
 // The factory's byte-preserving copier keeps downloads alongside images.
-const resources = getFiles(/^src\/(images|files)\//).map((path) => ({
+const resources = getFiles(/^src\/(images|files|docs)\//).map((path) => ({
   src: path,
   dest: relative("src/images", path),
 }));

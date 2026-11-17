@@ -49,6 +49,7 @@ This table covers registered types only. `No` types are rejected inside columns,
 | [`items`](#items) | `wide` | Yes |
 | [`items-array`](#items-array) | `wide` | Yes |
 | [`items-text-list`](#items-text-list) | `wide` | Yes |
+| [`socials`](#socials) | `wide` | Yes |
 | [`link-columns`](#link-columns) | `wide` | Yes |
 | [`markdown`](#markdown) | `wide` | Yes |
 | [`table-of-contents`](#table-of-contents) | `narrow` | Yes |
@@ -1039,6 +1040,50 @@ blocks:
     intro_content: "Read our latest news posts:"
 ```
 
+## `socials`
+
+Renders social-media posts loaded from a directory of JSON files as a card grid or horizontal strip.
+
+**Schema:** `src/_lib/utils/block-schema/socials.js`
+
+**Component:** `block_socials`
+
+**Template:** `src/_includes/design-system/blocks/socials.html`
+
+**SCSS:** `src/css/design-system/_items.scss`
+
+**HTML root:** `<ul class="items" role="list">`
+
+**Container width:** `wide`
+
+**CMS collection availability:** All collections with a block editor
+
+**Columns:** Yes
+
+| Field | Schema type | Presence | Default | CMS label | Description |
+| --- | --- | --- | --- | --- | --- |
+| `directory` | `string` | **required** | None | Directory | Directory under \`src/\` holding social-post JSON files — e.g. \`"instagram-posts"\` or \`"facebook-posts"\`. Each JSON file needs \`url\` and \`date\`, and may include \`title\`, \`thumbnail\`, and \`platform\`. |
+| `limit` | `number` | optional | None | Limit | Show at most this many posts, newest first. |
+| `intro_content` | `markdown` | optional | None | Intro Content (Markdown) | Markdown content rendered above the block in \`.prose\`. |
+| `horizontal` | `boolean` | optional | `false` | Horizontal Slider | If true, renders as a horizontal slider instead of a wrapping grid. |
+| `image_aspect_ratio` | `string` | optional | None | Image Aspect Ratio | Aspect ratio for images, e.g. \`"16/9"\`, \`"1/1"\`, \`"4/3"\`. |
+
+**Usage notes:** Posts are loaded per-block from the given directory, so one template serves Instagram, Facebook, or any other feed. Captions are shown as plain text and each card links out to the original post.
+
+### Canonical example
+
+```yaml
+blocks:
+  - type: socials
+    directory: facebook-posts
+    horizontal: true
+    limit: 12
+    intro_content: |-
+      ## Latest from social media
+
+      Recent posts, pulled from the feed automatically.
+```
+
 ## `link-columns`
 
 Renders a collection as a plain-text unordered list of links arranged in responsive CSS columns. Optionally strips matching text via a regex so repetitive prefixes/suffixes can be removed.
@@ -1145,7 +1190,7 @@ In-page contents built from the headings the page actually renders.
 | `title` | `string` | optional | `"On this page"` | Title | Heading above the list, and the accessible name of the navigation landmark. |
 | `levels` | `string` | optional | `"2,3"` | Heading Levels | Comma-separated heading levels to list, from \`2\` to \`6\`. Every other level is left out of the list, so \`"2"\` gives a top-level-only contents. An unlistable level fails the build. |
 
-**Usage notes:** The list is filled in after the page renders, from the headings in the page's main content at the levels this block names — no matter which blocks wrote them. Each listed heading gets an \`id\` (its own, when it already has one) so the links are stable, and the entries nest the way the headings do. A page whose headings none of the named levels match fails the build rather than publishing an empty contents.
+**Usage notes:** The list is filled in after the page renders, from the headings in the page's main content at the levels this block names — no matter which blocks wrote them. Headings inside an element with a \`data-toc-skip\` attribute are left out, for content such as a site-wide band in the \`footer-content\` snippet that renders on every page. Each listed heading gets an \`id\` (its own, when it already has one) so the links are stable, and the entries nest the way the headings do. A page whose headings none of the named levels match fails the build rather than publishing an empty contents.
 
 ### Canonical example
 

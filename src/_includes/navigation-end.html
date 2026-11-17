@@ -1,5 +1,10 @@
 {%- comment -%}
   Header slot after the menu: the language switcher, when config
-  language_switcher puts it in the header rather than the footer.
+  language_switcher puts it in the header rather than the footer, then
+  Blue Pits' phone and email, which the old site kept in its header.
 {%- endcomment -%}
 {%- include "language-switcher.html", placement: "header" -%}
+<ul class="header-contact" role="list">
+  <li><a href="tel:01706345886">{{ "hugeicons:call-02" | icon }}01706 345886</a></li>
+  <li><a href="mailto:bluepitshousingaction@gmail.com">{{ "hugeicons:mail-01" | icon }}bluepitshousingaction@gmail.com</a></li>
+</ul>

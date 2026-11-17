@@ -1,5 +1,9 @@
+import { join } from "node:path";
 import { describe, expect, test } from "vitest";
+import { ROOT_DIR } from "#lib/paths.js";
 import { pageWithBlocks, useSharedSite } from "#test/test-site-factory.js";
+
+const SOCIAL_POSTS = join(ROOT_DIR, "test/fixtures/social-posts");
 
 const LINKS = [
   { icon: "&#9733;", text: "First", url: "/first/" },
@@ -45,6 +49,10 @@ const getSite = useSharedSite({
     ]),
     pageWithBlocks("snippet", [{ type: "snippet", reference: "promo" }]),
     pageWithBlocks("faqs", [{ type: "faqs", items: FAQS }]),
+    pageWithBlocks("socials", [{ type: "socials", directory: SOCIAL_POSTS }]),
+    pageWithBlocks("socials-limit", [
+      { type: "socials", directory: SOCIAL_POSTS, limit: 2 },
+    ]),
     pageWithBlocks("faqs-collapsible", [
       { type: "faqs", collapsible: true, items: FAQS },
     ]),
@@ -87,6 +95,18 @@ describe("item-list blocks", () => {
       "Second",
     ]);
     expect(doc.querySelectorAll("figure li[data-reveal]")).toHaveLength(0);
+  });
+});
+
+describe("socials", () => {
+  test("lists every post in the directory, newest first", async () => {
+    const doc = await getSite().getDoc("socials/index.html");
+    expect(textsOf(doc, ".items h3")).toEqual(["Post 3", "Post 2", "Post 1"]);
+  });
+
+  test("a limit keeps only that many of the newest posts", async () => {
+    const doc = await getSite().getDoc("socials-limit/index.html");
+    expect(textsOf(doc, ".items h3")).toEqual(["Post 3", "Post 2"]);
   });
 });
 

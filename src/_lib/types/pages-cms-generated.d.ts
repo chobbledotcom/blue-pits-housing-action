@@ -12,23 +12,6 @@
 export interface PagesCMSEleventyNavigation {
   key?: string;
   order?: number;
-  url?: string;
-}
-
-export interface PagesCMSFaq {
-  /** Question */
-  question: string;
-  /** Answer */
-  answer: string;
-}
-
-export interface PagesCMSOption {
-  /** Name */
-  name: string;
-  /** Price */
-  unit_price: number;
-  /** Days of Hire */
-  days?: number;
 }
 
 export interface PagesCMSSocial {

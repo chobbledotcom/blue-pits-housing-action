@@ -15,6 +15,7 @@ import { configureNavigation } from "#collections/navigation.js";
 import { configureNews } from "#collections/news.js";
 import { configureProducts } from "#collections/products.js";
 import { configureReviews } from "#collections/reviews.js";
+import { configureSocials } from "#collections/socials.js";
 import { configureBlocks } from "#eleventy/blocks.js";
 import { configureBreadcrumbs } from "#eleventy/breadcrumbs.js";
 import { configureCollectionLookup } from "#eleventy/collection-lookup.js";
@@ -49,6 +50,7 @@ const CONFIGURATORS = [
   configureNews,
   configureProducts,
   configureReviews,
+  configureSocials,
   configureScreenshots,
   configureScss,
   configureStyleBundle,
@@ -66,6 +68,7 @@ export default async function (eleventyConfig) {
   }
   eleventyConfig
     .addPassthroughCopy("src/assets")
+    .addPassthroughCopy("src/docs")
     .addPassthroughCopy("src/files")
     .addPassthroughCopy("src/images")
     .addPassthroughCopy({ "src/assets/favicon/*": "/" });

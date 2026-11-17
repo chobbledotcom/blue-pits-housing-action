@@ -1,0 +1,74 @@
+name: Fetch Facebook Posts
+
+# Pull the latest posts from the Blue Pits Facebook page through Apify, commit
+# them, then dispatch the site build. The fetch is incremental: Apify is asked
+# only for posts newer than the newest saved record in src/facebook-posts/.
+#
+# Required secret: APIFY_API_KEY (or APIFY_API_TOKEN)
+
+on:
+  schedule:
+    - cron: "0 9 * * 1"
+  workflow_dispatch:
+
+concurrency:
+  group: fetch-facebook-posts
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    env:
+      # GitHub's runners have no IPv6 route. Keep DNS on IPv4 and disable
+      # Happy Eyeballs so image downloads cannot pick an unreachable IPv6 host.
+      NODE_OPTIONS: --dns-result-order=ipv4first --no-network-family-autoselection
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Fetch Facebook posts
+        env:
+          APIFY_API_KEY: ${{ secrets.APIFY_API_KEY }}
+          APIFY_API_TOKEN: ${{ secrets.APIFY_API_TOKEN }}
+        run: npm run fetch-facebook-posts
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit and push changes
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A src
+          git commit -m "Auto-update: Fetch latest Facebook posts"
+          git push
+
+      # Pushes made with GITHUB_TOKEN do not trigger other workflows, so ask
+      # the build workflow to run explicitly.
+      - name: Deploy the refreshed site
+        if: steps.changes.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run build-and-deploy.yaml

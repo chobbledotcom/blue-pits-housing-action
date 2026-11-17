@@ -26,7 +26,7 @@ export const docs = {
   scss: "src/css/design-system/_table-of-contents.scss",
   htmlRoot: '<nav class="table-of-contents">',
   notes:
-    "The list is filled in after the page renders, from the headings in the page's main content at the levels this block names — no matter which blocks wrote them. Each listed heading gets an `id` (its own, when it already has one) so the links are stable, and the entries nest the way the headings do. A page whose headings none of the named levels match fails the build rather than publishing an empty contents.",
+    "The list is filled in after the page renders, from the headings in the page's main content at the levels this block names — no matter which blocks wrote them. Headings inside an element with a `data-toc-skip` attribute are left out, for content such as a site-wide band in the `footer-content` snippet that renders on every page. Each listed heading gets an `id` (its own, when it already has one) so the links are stable, and the entries nest the way the headings do. A page whose headings none of the named levels match fails the build rather than publishing an empty contents.",
 };
 
 export const example = {

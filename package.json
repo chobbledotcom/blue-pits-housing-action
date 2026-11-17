@@ -50,6 +50,7 @@
 		"screenshot": "node scripts/screenshot.js",
 		"save-icons": "node scripts/save-iconify-icons.js",
 		"fetch-reviews": "node scripts/fetch-reviews.js",
+		"fetch-facebook-posts": "node scripts/fetch-facebook-posts.js",
 		"lighthouse": "node scripts/lighthouse.js",
 		"check:links": "node scripts/check-internal-links.js _site",
 		"check:a11y": "node scripts/check-accessibility.js _site"

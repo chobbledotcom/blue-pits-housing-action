@@ -121,6 +121,14 @@ describe("filling in the contents", () => {
     expect(contentsLinks(doc)).toEqual(["#in-main"]);
   });
 
+  test("leaves out headings inside an element marked data-toc-skip", async () => {
+    const doc = await fill(
+      page("<h2>Listed</h2><div data-toc-skip><h2>Shared band</h2></div>"),
+    );
+    expect(contentsLinks(doc)).toEqual(["#listed"]);
+    expect(doc.querySelector("[data-toc-skip] h2").id).toBe("");
+  });
+
   test("leaves a page without a contents block alone", async () => {
     const doc = await fill(
       '<!DOCTYPE html><html lang="en"><body><main id="content"><h2>Untouched</h2></main></body></html>',

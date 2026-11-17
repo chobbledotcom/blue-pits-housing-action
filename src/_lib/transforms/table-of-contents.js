@@ -7,6 +7,10 @@
  * contents can be right on a page assembled from blocks: no single block knows
  * what the others rendered.
  *
+ * Content shared across pages, such as the `footer-content` snippet's blocks,
+ * also renders inside `<main>`; wrapping it in `data-toc-skip` keeps its
+ * headings out of every page's contents.
+ *
  * Listed headings get an `id` to link to, keeping any the author wrote, and
  * the entries nest the way the headings do — an `h3` under the `h2` above it —
  * so a screen reader reads the page's structure rather than a flat run of
@@ -18,6 +22,7 @@ import { slugify } from "#utils/slug-utils.js";
 /** @typedef {{ text: string, id: string, children: Entry[] }} Entry */
 
 const TOC_SELECTOR = "nav.table-of-contents";
+const SKIP_SELECTOR = "[data-toc-skip]";
 const LEVELS_ATTRIBUTE = "data-toc-levels";
 const LISTABLE_LEVELS = [2, 3, 4, 5, 6];
 
@@ -127,14 +132,16 @@ const processTableOfContents = (document) => {
 
   /**
    * The headings one block covers: everything in `<main>` at one of its
-   * levels, less the titles of the contents blocks themselves.
+   * levels, less the titles of the contents blocks themselves and anything
+   * marked `data-toc-skip`.
    * @param {number[]} levels
    * @returns {Element[]}
    */
   const listableHeadings = (levels) => {
     const selector = levels.map((level) => `main h${level}`).join(", ");
     return [...document.querySelectorAll(selector)].filter(
-      (heading) => !heading.closest(TOC_SELECTOR),
+      (heading) =>
+        !heading.closest(TOC_SELECTOR) && !heading.closest(SKIP_SELECTOR),
     );
   };
 

@@ -12,6 +12,7 @@ import { describe, expect, test } from "vitest";
 import { configureGuides } from "#collections/guides.js";
 import { configureNavigation } from "#collections/navigation.js";
 import { configureReviews } from "#collections/reviews.js";
+import { configureSocials } from "#collections/socials.js";
 import { configureBlocks } from "#eleventy/blocks.js";
 import { configureBreadcrumbs } from "#eleventy/breadcrumbs.js";
 import { configureCollectionLookup } from "#eleventy/collection-lookup.js";
@@ -44,6 +45,7 @@ const CONFIGURE_MODULES = [
   configureImages,
   configureNavigation,
   configureReviews,
+  configureSocials,
   configureStyleBundle,
   configureVideo,
 ];
